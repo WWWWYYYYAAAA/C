@@ -33,7 +33,7 @@ int main()
 
     const int VAR = 5;
     //把常量定义为大写字母形式，是一个很好的编程习惯。
-
+    printf("%d | %d = %d\n", 0xA, 0x3, 0xA|0x3);
 
     getchar();
     getchar();
