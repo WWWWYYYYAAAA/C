@@ -11,6 +11,11 @@ int main()
     printf("max: %E\n", FLT_MAX);
     printf("min: %E\n", FLT_MIN);
     printf("precision: %d\n", FLT_DIG);
+    
+    volatile int num;
+    num = 4;
+    printf("num: %d\n", num);
+
     getchar();
     getchar();
     return 0;
