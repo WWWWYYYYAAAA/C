@@ -1,7 +1,16 @@
 #include <stdio.h>
+#include <errno.h>
+#include <string.h>
+ 
+extern int errno ;
+
 #define FILE_SIZE 30
 #undef  FILE_SIZE
 #define FILE_SIZE 42
+
+#if !defined (MESSAGE)
+   #define MESSAGE "You wish!"
+#endif
 
 int main()
 {
@@ -33,6 +42,33 @@ int main()
     printf("Line: %d\n", __LINE__);
     printf("ANSI: %d\n", __STDC__);
     printf("%d\n", FILE_SIZE);
+
+    #pragma message( "Pentium processor build" )//send a message when compiling
+    //d:\focus_task\C\file.c:41:48: note: #pragma message: Pentium processor build
+
+    int sum = 17, count = 5;
+    double mean;
+
+    mean = (double) sum / count;
+    printf("Value of mean : %f\n", mean);
+
+    printf("Here is the message: %s\n", MESSAGE);  
+
+    FILE * pf;
+    int errnum;
+    pf = fopen ("unexist.txt", "rb");
+    if (pf == NULL)
+    {
+        errnum = errno;
+        fprintf(stderr, "错误号: %d\n", errnum);
+        perror("通过 perror 输出错误");
+        fprintf(stderr, "打开文件错误: %s\n", strerror( errnum ));
+    }
+    else
+    {
+        fclose (pf);
+    }
+
     getchar();
     getchar();
     return 0;
