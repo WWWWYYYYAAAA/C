@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <errno.h>
 #include <string.h>
+#include <stdlib.h>
  
 extern int errno ;
 
@@ -68,8 +69,21 @@ int main()
     {
         fclose (pf);
     }
+    getchar();
+    getchar();
 
-    getchar();
-    getchar();
+    int dividend = 20;
+    int divisor = 0;
+    int quotient;
+
+    if ( divisor == 0)
+    {
+        fprintf(stderr, "divisior_0_error...ending...\n");
+        exit(-1);
+    }
+    quotient = dividend / divisor;
+    fprintf(stderr, "quotient 变量的值为 : %d\n", quotient );
+    exit(0);
+    
     return 0;
 }
