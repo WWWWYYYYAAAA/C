@@ -21,6 +21,18 @@ void createarray(int *array, int m, int (*grv)(void))
     }
 }
 
+struct BS{
+    unsigned int a:4;
+    //unsigned int  :4;    
+    //unsigned int b:4;    
+    //unsigned int c:4;
+};
+union Data
+{
+    int x;
+    float y;
+    char z;
+};
 int main()
 {
     printf("g: %d\n", g);
@@ -49,6 +61,24 @@ int main()
     {
         printf("%d\n", list[i]);
     }
+
+    char * str;
+    str = "ABC";
+    printf("%s", str);
+    str = "abc";
+    printf("%s", str);
+    printf("\n");
+
+    union Data da;
+    da.x = 1;
+    printf("da.x: %d\n", da.x);
+    da.y = 3.6;
+    printf("da.y: %.2f\n", da.y);
+    da.z = 'c';
+    printf("da.z: %c\n", da.z);
+    
+    struct BS bs = {3};
+    printf("sizeof %d\n", sizeof(bs));
     getchar();
     getchar();
     return 0;
