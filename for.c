@@ -1,6 +1,15 @@
 #include <stdio.h>
-#include <windows.h>
+#include<windows.h>
 #include <conio.h>
+
+int maxnum(int num1, int num2)
+{
+    if(num1 > num2)
+        return num1;
+    else
+        return num2;
+}
+
 int main()
 {
     int num;
@@ -50,8 +59,8 @@ int main()
       
         Sleep(1000);
     }
-
-
+    printf("\n");
+    printf("max: %d\n", maxnum(5, 7));
     getchar();
     getchar();
     return 0;
