@@ -1,11 +1,25 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 int g;
 
 enum DAY
 {
       MON=1, TUE, WED, THU, FRI, SAT, SUN
 };
+
+int grv()
+{
+    return rand();
+}
+
+void createarray(int *array, int m, int (*grv)(void))
+{
+    int i;
+    for(i=0; i<m; i++)
+    {
+        array[i] = grv();
+    }
+}
 
 int main()
 {
@@ -22,7 +36,19 @@ int main()
     {
         printf("MON: %d\n", i);
     }
+    //pointer
+    int aa = 3;
+    int *p;
+    p = &aa;
+    printf("*P %d\n", *p);
 
+
+    int list[10];
+    createarray(list, 10, grv);
+    for(i=0; i<10; i++)
+    {
+        printf("%d\n", list[i]);
+    }
     getchar();
     getchar();
     return 0;
